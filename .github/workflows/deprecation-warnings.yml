@@ -1,0 +1,24 @@
+name: Demo deprecation warnings
+on: 
+  workflow_dispatch:
+  push:
+
+jobs:
+  deprecated-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 11
+      - name: Setup Gradle with deprecated inputs
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          arguments: assemble
+          build-scan-publish: true
+          build-scan-terms-of-service-url: "https://gradle.com/help/legal-terms-of-use"
+          build-scan-terms-of-service-agree: "yes"
+          generate-job-summary: true
