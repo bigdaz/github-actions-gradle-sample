@@ -15,7 +15,7 @@ jobs:
       uses: gradle/actions/setup-gradle@dd/deprecations
       with:
         build-scan-publish: true
-        build-scan-terms-of-serice-url: "https://gradle.com/terms-of-service"
+        build-scan-terms-of-service-url: "https://gradle.com/terms-of-service"
         build-scan-terms-of-service-agree: "yes"
         arguments: build
 
