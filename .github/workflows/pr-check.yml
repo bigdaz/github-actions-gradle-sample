@@ -15,10 +15,10 @@ jobs:
       id: PR
     - name: Do this on PR push
       if: steps.PR.outputs.pr_found == 'true'
-      run: echo "This is a PR!"
+      run: echo "This is a PR"
     - name: Do this on non-PR push
       if: steps.PR.outputs.pr_found == 'false'
-      run: echo "This is not a PR!"
+      run: echo "This is not a PR"
 
   respond-to-pr:
     runs-on: ubuntu-latest
