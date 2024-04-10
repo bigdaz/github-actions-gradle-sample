@@ -8,7 +8,7 @@ jobs:
   check-pr:
     runs-on: ubuntu-latest
     outputs:
-      value: ${{ steps.PR.outputs.pr_found && 'found a PR' || 'did not find a PR' }}
+      value: ${{ steps.PR.outputs.pr_found == 'true' && 'found a PR' || 'did not find a PR' }}
     steps:
     - name: Check for current PR
       uses: 8BitJonny/gh-get-current-pr@3.0.0
