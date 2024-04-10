@@ -1,0 +1,28 @@
+name: Do more on PR
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  check-pr:
+    runs-on: ubuntu-latest
+    outputs:
+      value: ${{ steps.PR.outputs.pr_found && 'found a PR' || 'did not find a PR' }}
+    steps:
+    - name: Check for current PR
+      uses: 8BitJonny/gh-get-current-pr@3.0.0
+      id: PR
+    - name: Do this on PR push
+      if: steps.PR.outputs.pr_found == 'true'
+      run: echo "This is a PR"
+    - name: Do this on non-PR push
+      if: steps.PR.outputs.pr_found == 'false'
+      run: echo "This is not a PR"
+
+  respond-to-pr:
+    runs-on: ubuntu-latest
+    needs: check-pr
+    steps:
+    - name: Respond to PR
+      run: echo "PR? - ${{ needs.check-pr.outputs.value }}"
