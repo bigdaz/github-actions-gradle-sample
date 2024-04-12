@@ -8,3 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: gradle/actions/wrapper-validation@main
+        env:
+          GRADLE_ACTION_ID: gradle/wrapper-validation-action
+
