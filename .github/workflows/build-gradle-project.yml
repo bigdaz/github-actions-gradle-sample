@@ -8,6 +8,7 @@ jobs:
   build-on-ubuntu:
     runs-on: ubuntu-latest
     steps:
+    - run: gradle --version
     - name: Checkout project sources
       uses: actions/checkout@v4
 
@@ -23,6 +24,7 @@ jobs:
     needs: build-on-ubuntu
     runs-on: windows-latest
     steps:
+    - run: gradle --version
     - name: Checkout project sources
       uses: actions/checkout@v4
 
