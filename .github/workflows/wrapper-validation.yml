@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: gradle/actions/wrapper-validation@main
+      - uses: gradle/wrapper-validation-action@main
         env:
           GRADLE_ACTION_ID: gradle/wrapper-validation-action
 
